@@ -1,0 +1,75 @@
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.js"></script>
+	<script type="text/javascript" src="http://sushantkafle.github.io/CodeFrame_BloggerPlugin/js/js/globals.js"></script>
+	<script type="text/javascript" src="http://sushantkafle.github.io/CodeFrame_BloggerPlugin/js/js/javaProcess.js"></script>
+
+	<style>
+	code
+	{
+		color:rgb(222,222,222);
+		display : block;
+		background-image: url(http://sushantkafle.github.io/CodeFrame_BloggerPlugin/images/bg.png);
+		font-size: 13px;
+		font-family: "Arial";
+		
+	}
+
+	keyword
+	{
+		color:rgb(31,182,242);
+		font-weight: 900;
+	}
+
+	comment
+	{
+		color:rgb(110,157,132);
+		font-style: italic;
+		
+	}
+
+	string
+	{
+		color:rgb(255,204,102);
+		font-weight: 900;
+	}
+
+	linenumber
+	{
+		color:white;
+		font-weight: bold;
+		font-family: "Arial";
+	}
+
+	number
+	{
+		color:rgb(255,0,0);
+		font-weight: 900;
+	}
+
+	</style>
+
+	<script>
+
+	$(document).ready(function(){
+		startProcess();
+	});
+
+	function startProcess()
+	{
+		$value=$('code').html();
+	    if($value.length > 0)
+	    {
+		    $tagWidth=getWidth($value);
+
+		    $value=processCode($value);
+
+		    $value=postProcess($value);
+		    
+		    $('code').html($value);
+
+		    $('code').width($tagWidth);
+
+
+		}
+	}
+
+	</script>
