@@ -13,8 +13,8 @@
 		color:rgb(222,222,222);
 		display : block;
 		background-image: url(images/bg.png);
-		font-size: 16px;
-		font-family: "Lucida Sans Typewriter";
+		font-size: 13px;
+		font-family: "Arial";
 		
 	}
 
@@ -55,10 +55,6 @@
 	<script>
 
 
-	var lineNumber = true;
-
-
-
 	$(document).ready(function(){
 		startProcess();
 	});
@@ -72,12 +68,9 @@
 
 		    $value=processCode($value);
 
-		    if(window.lineNumber)
-		    {
-		    	$value=postProcess($value);
-		    }	
+		    $value=postProcess($value);
 
-		    $('code').html($value+"<br/>");
+		    $('code').html($value);
 
 		    $('code').width($tagWidth);
 
