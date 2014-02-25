@@ -66,23 +66,30 @@
 
 	function startProcess()
 	{
-		$value=$('code').html();
-	    if($value.length > 0)
-	    {
-		    $tagWidth=getWidth($value);
+	//$value=$('code').html();
+		
+		var codeArray = document.getElementsByTagName('code');
+		
+		for(i=0;i<codeArray.length;i++)
+		{
+		
+			$value = codeArray[i].innerHTML;
+		
+			if($value.length > 0)
+			{
+				$tagWidth=getWidth($value);
 
-		    $value=processCode($value);
+				$value=processCode($value);
 
-		    if(window.lineNumber)
-		    {
-		    	$value=postProcess($value);
-		    }	
+				$value=postProcess($value);
 
-		    $('code').html($value+"<br/>");
+				//$('code').html($value);
+				codeArray[i].innerHTML = $value;
 
-		    $('code').width($tagWidth);
+				$('code').width($tagWidth);
 
 
+			}
 		}
 	}
 
