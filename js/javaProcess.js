@@ -1,3 +1,29 @@
+function startProcess()
+{
+	var codeArray = document.getElementsByTagName('code');
+	
+	for(i=0;i<codeArray.length;i++)
+	{
+	
+		$value = codeArray[i].innerHTML;
+	
+		if($value.length > 0)
+		{
+			$tagWidth=getWidth($value);
+	
+			$value=processCode($value);
+	
+			$value=postProcess($value);
+	
+			codeArray[i].innerHTML = $value;
+	
+			$('code').width($tagWidth);
+	
+	
+		}
+	}
+}
+
 function isKeyword($value)
 {
 	for(var i=0;i<$Javakeywords.length;i++)
